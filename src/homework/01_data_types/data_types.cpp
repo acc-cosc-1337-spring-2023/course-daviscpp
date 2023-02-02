@@ -13,6 +13,3 @@ int multiply_numbers(int num1)
 
 	return num1 * num2;
 }
-
-
-
