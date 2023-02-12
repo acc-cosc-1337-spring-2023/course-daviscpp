@@ -25,7 +25,10 @@ int main()
 	
 	total = tip_amount + tax_amount + meal_amount;
 
-	cout << total;
+	cout << "Meal amount: " << meal_amount << "\n";
+	cout << "Sales tax: " << tax_amount << "\n";
+	cout << "Tip amount: " << tip_amount << "\n";
+	cout << "Total: " << total << "\n";
 
 	return 0;
 }
