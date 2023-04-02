@@ -13,6 +13,7 @@ void init();
 class TicTacToe
 {
 public:
+    string get_winner(){return winner;}
     void start_game(string first_player);
     void mark_board(int position);
     string get_player() const;
@@ -20,10 +21,15 @@ public:
     bool game_over();
     void restart_game();
 private:
+ 	void set_winner();
+ 	bool check_diagonal_win();
+    bool check_column_win();
+    bool check_row_win();
     bool check_board_full();
     void set_next_player();
     void clear_board();
     string player;
+    string winner;
     vector<string> pegs{9, " "};
 };
 
