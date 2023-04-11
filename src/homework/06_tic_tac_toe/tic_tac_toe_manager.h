@@ -4,7 +4,7 @@
 #ifndef TICTACTOE_MANAGER_H
 #define TICTACTOE_MANAGER_H
 
-class TicTacToeManager : public TicTacToe
+class TicTacToeManager
 {
 
 friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager& game);

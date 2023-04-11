@@ -25,11 +25,3 @@ void TicTacToeManager::get_winner_total(int& o, int& x, int& t)
     x = x_win;
     t = ties;
 }
-
-std::ostream& operator<<(std::ostream& out, TicTacToeManager& manager)
-{
-    for(auto& game : manager.games)
-    {
-        cout << game;
-    }
-}
