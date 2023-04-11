@@ -18,19 +18,6 @@ string TicTacToe::get_player() const
     return player;
 }
 
-void TicTacToe::display_board() const 
-{
-    cout << " " << pegs[0] << " | " << pegs[1] << " | " << pegs[2] << " \n";
-
-    cout << "-----------\n";
-
-    cout << " " << pegs[3] << " | " << pegs[4] << " | " << pegs[5] << " \n";
-
-    cout << "-----------\n";
-
-    cout << " " << pegs[6] << " | " << pegs[7] << " | " << pegs[8] << " \n";
-}
-
 bool TicTacToe::game_over() 
 {
     if(check_board_full() || check_column_win() || check_diagonal_win())
@@ -179,8 +166,6 @@ void init()
             cin >> position;
 
             game.mark_board(position);
-
-            game.display_board();
         }
 
         cout << "Game over ..." << "\n";
