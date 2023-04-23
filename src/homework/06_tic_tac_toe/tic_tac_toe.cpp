@@ -1,4 +1,3 @@
-//cpp
 #include "tic_tac_toe.h"
 
 void TicTacToe::start_game(string first_player) 
@@ -20,30 +19,29 @@ string TicTacToe::get_player() const
 
 bool TicTacToe::game_over() 
 {
-    if(check_board_full() || check_column_win() || check_diagonal_win())
+    if (check_board_full() || check_column_win() || check_diagonal_win()) 
     {
         set_winner();
         return true;
-    }
-
-    else if (check_board_full())
+    } 
+    else if (check_board_full()) 
     {
         winner = "C";
         return true;
-    }
-    else
+    } 
+    else 
     {
         return false;
     }
 }
 
 void TicTacToe::set_next_player()
-{
-    if (player == "X")
+ {
+    if (player == "X" || "x") 
     {
         player = "O";
-    }
-    else
+    } 
+    else 
     {
         player = "X";
     }
@@ -70,7 +68,7 @@ void TicTacToe::clear_board()
     }
 }
 
-void TicTacToe::restart_game()
+void TicTacToe::restart_game() 
 {
     clear_board();
     cout << "Enter the first player (X or O): ";
@@ -79,104 +77,71 @@ void TicTacToe::restart_game()
     start_game(first_player);
 }
 
-bool TicTacToe::check_diagonal_win()
+bool TicTacToe::check_diagonal_win() 
 {
-    if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " ")  //first diagonal
+    if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " ") 
     {
         return true;
-    }
-    else if (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " ") //second diagonal
+    } 
+    else if (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " ") 
     {
         return true;
-    }
+    } 
     else 
     {
         return false;
     }
 }
 
-bool TicTacToe::check_row_win()
+bool TicTacToe::check_row_win() 
 {
-    if (pegs[0] == pegs[1] && pegs[1] == pegs[2] && pegs[0] != " ")
+    if (pegs[0] == pegs[1] && pegs[1] == pegs[2] && pegs[0] != " ") 
     {
         return true;
-    }
-    else if (pegs[3] == pegs[4] && pegs[4] == pegs[5] && pegs[3] != " ")
+    } 
+    else if (pegs[3] == pegs[4] && pegs[4] == pegs[5] && pegs[3] != " ") 
     {
         return true;
-    }
-    else if (pegs[6] == pegs[7] && pegs[7] == pegs[8] && pegs[6] != " ")
+    } 
+    else if (pegs[6] == pegs[7] && pegs[7] == pegs[8] && pegs[6] != " ") 
     {
         return true;
-    }
+    } 
     else 
     {
         return false;
     }
 }
 
-bool TicTacToe::check_column_win()
+bool TicTacToe::check_column_win() 
 {
-    if (pegs[0] == pegs[3] && pegs[3] == pegs[6] && pegs[0] != " ") //first column
+    if (pegs[0] == pegs[3] && pegs[3] == pegs[6] && pegs[0] != " ") 
     {
         return true;
-    }
-    else if (pegs[1] == pegs[4] && pegs[4] == pegs[7] && pegs[1] != " ") //mid column
+    } 
+    else if (pegs[1] == pegs[4] && pegs[4] == pegs[7] && pegs[1] != " ") 
     {
         return true;
-    }
-    else if (pegs[2] == pegs[5] && pegs[5] == pegs[8] && pegs[2] != " ") //last column
+    } 
+    else if (pegs[2] == pegs[5] && pegs[5] == pegs[8] && pegs[2] != " ") 
     {
         return true;
-    }
+    } 
     else 
     {
         return false;
     }
 }
 
-void TicTacToe::set_winner()
+void TicTacToe::set_winner() 
 {
-    if(player == "X")
+    TicTacToe::get_player();
+    if (player == "X" || "x") 
     {
-        player = "O";
+        winner = "O";
     }
-    else
+    if (player == "O") 
     {
-        player = "X";
+        winner = "X";
     }
-}
-
-void init()
-{
-    TicTacToe game;
-    string player;
-
-    do 
-    {
-        cout << "Enter X or O for the first player: ";
-        cin >> player;
-
-        game.start_game(player);
-
-        while (!game.game_over()) 
-        {
-            cout << "Player " << game.get_player() << ", enter a position (1-9): ";
-            int position;
-            cin >> position;
-
-            game.mark_board(position);
-        }
-
-        cout << "Game over ..." << "\n";
-
-        cout << "Would you like to play again? (Y/N): ";
-        char choice;
-        cin >> choice;
-    
-    if (choice == 'y' || choice == 'Y') 
-    {
-        game.restart_game();
-    }
-    } while (player != "n" || player != "N");
 }
